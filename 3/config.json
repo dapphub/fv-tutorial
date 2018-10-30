@@ -7,7 +7,7 @@
     ]
   },
   "implementations": {
-    "DemurrageToken" :
+    "TimeLock" :
         {"solc_output": "dapp/out/timelock.sol.json"}
   },
   "dapp_root": "dapp",
