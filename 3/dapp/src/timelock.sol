@@ -37,7 +37,7 @@ contract TimeLock {
         debt[msg.sender][til] = add(debt[msg.sender][til], get);
         gem.burn(msg.sender, wad);
     }
-    function free(uint48 era) {
+    function free(uint48 era) public {
         require(era <= now);
         uint get = debt[msg.sender][era];
         debt[msg.sender][era] = 0;        

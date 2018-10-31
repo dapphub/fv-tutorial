@@ -19,15 +19,15 @@ contract Token {
         require(msg.sender == owner);
         owner = who;
     }
-    function transfer(address dst, uint wad) {
+    function transfer(address dst, uint wad) public {
         balanceOf[msg.sender] = sub(balanceOf[msg.sender], wad);
         balanceOf[dst]        = add(balanceOf[dst], wad);
     }
-    function mint(address dst, uint wad) {
+    function mint(address dst, uint wad) public {
         require(msg.sender == owner);
         balanceOf[dst] = add(balanceOf[dst], wad);
     }
-    function burn(address src, uint wad) {
+    function burn(address src, uint wad) public {
         require(msg.sender == owner);
         balanceOf[src] = sub(balanceOf[src], wad);
     }
