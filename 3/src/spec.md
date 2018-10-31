@@ -25,6 +25,7 @@ storage Gem
 
 iff
 
+    VCallDepth < 1024
     Gem_owner == ACCT_ID
 
 iff in range uint256
@@ -62,6 +63,7 @@ storage Gem
 
 iff
 
+    VCallDepth < 1024
     Gem_owner == ACCT_ID
 
 iff in range uint256
