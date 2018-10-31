@@ -13,7 +13,7 @@ rule #TimeLock.rate => 1
 
 syntax Int ::= "#TimeLock.debt" "[" Int "]" "[" Int "]" [function]
 // ---------------------------------------------------------------
-rule #TimeLock.debt[A][B] => #hashedLocation("Solidity", 1, A B)
+rule #TimeLock.debt[A][B] => #hashedLocation("Solidity", 2, A B)
 ```
 
 ## GemLike
