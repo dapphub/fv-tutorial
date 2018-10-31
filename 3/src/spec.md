@@ -30,6 +30,10 @@ iff
 
 iff in range uint256
 
+    Rate * tau
+    wad * (Rate * tau)
+    wad + wad * (Rate * tau)
+    Debt + wad + wad * (Rate * tau)
     Guy_bal - wad
 
 iff in range uint48
@@ -64,6 +68,7 @@ storage Gem
 iff
 
     VCallDepth < 1024
+    era <= TIME
     Can == 1
 
 iff in range uint256
