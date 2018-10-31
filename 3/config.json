@@ -1,15 +1,16 @@
 {
-  "src": {
-      "specification": "src/spec.md",
-      "smt_prelude": "src/prelude.smt2.md",
-      "rules": [
-          "src/lemmas.k.md",
-          "src/storage.k.md"
-      ]
-  },
+    "src": {
+        "specification": "src/spec.md",
+        "smt_prelude": "src/prelude.smt2.md",
+        "rules": [
+            "src/lemmas.k.md",
+            "src/storage.k.md"
+        ]
+    },
     "implementations": {
-      "TimeLock" :
-        {"solc_output": "dapp/out/timelock.sol.json"},
+        "TimeLock" :
+        {"name" : "TimeLock",
+         "solc_output": "dapp/out/timelock.sol.json"},
         "GemLike" :
         {"name": "Token",
          "solc_output": "dapp/out/token.sol.json"}
