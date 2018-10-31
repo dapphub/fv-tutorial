@@ -1,13 +1,10 @@
 pragma solidity ^0.4.24;
 
-contract GemLike {
-    function mint(address,uint) public;
-    function burn(address,uint) public;
-}
+import './token.sol';
 
 contract TimeLock {
 
-    GemLike gem;
+    Token gem;
     // per second (linear) interest rate
     // equivalent to about 10% per year    
     uint256 public rate = 3170979198;
@@ -28,7 +25,7 @@ contract TimeLock {
     }
 
     constructor(address gem_) public {
-        gem = GemLike(gem_);
+        gem = Token(gem_);
     }
 
     function lock(uint256 wad, uint48 tau) public {
@@ -37,7 +34,7 @@ contract TimeLock {
         debt[msg.sender][til] = add(debt[msg.sender][til], get);
         gem.burn(msg.sender, wad);
     }
-    function free(uint48 era) {
+    function free(uint48 era) public {
         require(era <= now);
         uint get = debt[msg.sender][era];
         debt[msg.sender][era] = 0;        
