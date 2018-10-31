@@ -10,8 +10,6 @@ types
     Rate      : uint256
     Debt      : uint256
     Guy_bal   : uint256
-    Supply    : uint256
-    Allowance : uint256
     Gem_owner : address
 
 storage
@@ -22,14 +20,12 @@ storage
 
 storage Gem
 
-    balances[CALLER_ID]           |-> Guy_bal => Guy_bal - wad
-    supply                        |-> Supply  => Supply - wad
-    approvals[CALLER_ID][ACCT_ID] |-> Tl_allowance
-    owner                         |-> Gem_owner
+    balanceOf[CALLER_ID] |-> Guy_bal => Guy_bal - wad
+    owner                |-> Gem_owner
 
 iff
 
-    Tl_allowance >= wad
+    Gem_owner == ACCT_ID
 
 iff in range uint256
 
@@ -40,7 +36,6 @@ iff in range uint48
     TIME + tau
 
 if
-    Gem_owner == ACCT_ID
     VGas >= 100000
 ```
 
@@ -53,7 +48,6 @@ types
     Gem       : address GemLike
     Debt      : uint256
     Guy_bal   : uint256
-    Supply    : uint256              
     Gem_owner : address
 
 storage
@@ -63,15 +57,18 @@ storage
 
 storage Gem
 
-    balances[CALLER_ID] |-> Guy_bal => Guy_bal + Debt
-    supply              |-> Supply  => Supply + Debt
-    owner               |-> Gem_owner
+    balanceOf[CALLER_ID] |-> Guy_bal => Guy_bal + Debt
+    owner                |-> Gem_owner
+
+iff
+
+    Gem_owner == ACCT_ID
 
 iff in range uint256
 
     Guy_bal + Debt
 
 if
-    Gem_owner == ACCT_ID
+
     VGas >= 100000
 ```
