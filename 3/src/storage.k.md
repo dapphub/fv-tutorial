@@ -19,11 +19,11 @@ rule #TimeLock.debt[A][B] => #hashedLocation("Solidity", 2, A B)
 ## GemLike
 
 ```k
-syntax Int ::= "#Gem.owner" [function]
+syntax Int ::= "#Gem.owners" "[" Int "]" [function]
 // -----------------------------------
-rule #Gem.owner => 0
+rule #Gem.owners[A] => #hashedLocation("Solidity", 0, A)
 
 syntax Int ::= "#Gem.balanceOf" "[" Int "]" [function]
 // --------------------------------------------------
-rule #Gem.balanceOf[A] =>  #hashedLocation("Solidity", 1, A)
+rule #Gem.balanceOf[A] => #hashedLocation("Solidity", 1, A)
 ```

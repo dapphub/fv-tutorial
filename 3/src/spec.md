@@ -6,11 +6,11 @@ interface lock(uint256 wad, uint48 tau)
 
 types
 
-    Gem       : address GemLike
-    Rate      : uint256
-    Debt      : uint256
-    Guy_bal   : uint256
-    Gem_owner : address
+    Gem     : address GemLike
+    Rate    : uint256
+    Debt    : uint256
+    Guy_bal : uint256
+    Can     : uint256
 
 storage
 
@@ -21,12 +21,12 @@ storage
 storage Gem
 
     balanceOf[CALLER_ID] |-> Guy_bal => Guy_bal - wad
-    owner                |-> Gem_owner
+    owners[ACCT_ID]      |-> Can
 
 iff
 
     VCallDepth < 1024
-    Gem_owner == ACCT_ID
+    Can == 1
 
 iff in range uint256
 
@@ -46,10 +46,10 @@ interface free(uint48 era)
 
 types
 
-    Gem       : address GemLike
-    Debt      : uint256
-    Guy_bal   : uint256
-    Gem_owner : address
+    Gem     : address GemLike
+    Debt    : uint256
+    Guy_bal : uint256
+    Can     : uint256
 
 storage
 
@@ -59,12 +59,12 @@ storage
 storage Gem
 
     balanceOf[CALLER_ID] |-> Guy_bal => Guy_bal + Debt
-    owner                |-> Gem_owner
+    owners[ACCT_ID]      |-> Can
 
 iff
 
     VCallDepth < 1024
-    Gem_owner == ACCT_ID
+    Can == 1
 
 iff in range uint256
 
