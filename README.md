@@ -13,4 +13,6 @@ solc --combined-json=abi,bin,bin-runtime,srcmap,srcmap-runtime,ast ./src/token.s
 ```
 in the examples `dapp` folder.
 
+A good thing to keep in mind during this tutorial is that proof claims that are incorrect fail with dubious errors from K. The best way to debug failing specs is to look at the branches explored, using klab and make sure to add constraints to not explore unintended execution paths.
+
 Example solutions are found at the hidden repository [fv-tutorial-solutions](https://github.com/dapphub/fv-tutorial-solutions)
