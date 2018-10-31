@@ -13,7 +13,7 @@ rule #TimeLock.rate => 1
 
 syntax Int ::= "#TimeLock.debt" "[" Int "]" "[" Int "]" [function]
 // ---------------------------------------------------------------
-rule #TimeLock.debt[A][B] => #hashedLocation("Solidity", 1, A B)
+rule #TimeLock.debt[A][B] => #hashedLocation("Solidity", 2, A B)
 ```
 
 ## GemLike
@@ -25,5 +25,5 @@ rule #Gem.owner => 0
 
 syntax Int ::= "#Gem.balanceOf" "[" Int "]" [function]
 // --------------------------------------------------
-rule #Gem.balanceOf[A] => #hashedLocation("Solidity", 1, A)
+rule #Gem.balanceOf[A] =>  #hashedLocation("Solidity", 1, A)
 ```
